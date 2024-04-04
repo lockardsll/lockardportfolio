@@ -1,0 +1,81 @@
+/* ADD YOUR CUSTOM CSS TO THIS FILE */
+
+body, html {
+    height: 100%;
+}
+
+body
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("links/homepic.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* The hero image */
+#homehero {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("links/homepic.jpg");
+  
+    /* Set a specific height */
+    height: 100%;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.btn-light {
+  width: 350px;
+  height:150px
+  text-align
+}
+
+.btn-light {
+  display: inline-block;
+  text-decoration: none;
+  padding: 40px 90px; /* Adjust padding as needed */
+  border: 0px solid #1a2457  ; /* Example border */
+  border-radius: 5px; /* Example border radius */
+  width: 350px;
+  height:150px;
+}
+
+.btn-light img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle; /* Aligns image vertically */
+}
+
+.btn-text {
+  display: inline-block;
+  vertical-align: middle; /* Aligns text vertically */
+}
+
+.btn-primary {
+  background-color: #0b2edb;
+  border: 0px;
+}
+
+

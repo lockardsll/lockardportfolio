@@ -74,8 +74,34 @@ body
 }
 
 .btn-primary {
-  background-color: #0b2edb;
+  background-color: #1c2655;
   border: 0px;
 }
+
+.image-container {
+  position: relative;
+}
+
+.image {
+  transition: opacity 0.3s ease;
+}
+
+.hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image {
+  opacity: 0.7; /* Change this value to adjust opacity on hover */
+}
+
+.image-container:hover .hover-button {
+  opacity: 1;
+}
+
 
 

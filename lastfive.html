@@ -1,58 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="portfolio">
-    <meta name="author" content="sarah lockard">
-    <title>Sarah Lockard · Portfolio</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sarah Lockard — Last Five Years project">
+  <meta name="author" content="sarah lockard">
+  <title>Sarah Lockard · Last Five Years</title>
 
-    <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- END LOADING BOOTSTRAP CSS -->
+  <style>
+    :root {
+      --bg: #0b0a12;
+      --ink: #ecebf4;
+      --ink-dim: #a8a5bd;
+      --ink-mute: #6e6a85;
+      --accent: #7DBCFF;
+      --accent-2: #f4e9d8;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.18);
+      --card: rgba(255,255,255,0.035);
+    }
+    ::-webkit-scrollbar { width: 14px; height: 14px; }
+    ::-webkit-scrollbar-track { background: #27253D; }
+    ::-webkit-scrollbar-thumb { background: #2E355F; border-radius: 8px; }
+    ::-webkit-scrollbar-thumb:hover { background: #465191; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); min-height: 100vh; }
+    body { font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    
-    <!-- Custom styles -->
-    <link href="custom.css" rel="stylesheet">
-  </head>
-  <body id="page-top">
-   
-       <!-- START THE FEATURETTES -->
-     
-       <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">Last Five Years Publicity </h1>
-        <p class="lead"> February 2024
-        </p>
-        
-          <a class="btn btn-sm btn-outline-danger" href="mywork.html">Back to my works</a>
-        
-      
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(60% 45% at 15% 12%, rgba(120,102,255,0.28), transparent 60%),
+        radial-gradient(50% 40% at 85% 8%, rgba(72,58,170,0.22), transparent 65%),
+        radial-gradient(70% 50% at 50% 110%, rgba(167,163,255,0.12), transparent 70%);
+    }
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.4;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .frame { position: relative; z-index: 2; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(14px) saturate(1.1);
+      -webkit-backdrop-filter: blur(14px) saturate(1.1);
+      background: linear-gradient(to bottom, rgba(11,10,18,0.75), rgba(11,10,18,0.35));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1380px; margin: 0 auto;
+      padding: 18px clamp(24px, 5vw, 80px);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; display: inline-flex; align-items: center; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 18px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: rgba(255,255,255,0.85); }
+    .nav-links a.active { color: var(--accent); }
+
+    .page-header {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(64px, 10vw, 80px) clamp(24px, 5vw, 80px) clamp(32px, 5vw, 60px);
+    }
+    .eyebrow {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .page-title { margin: 0; font-size: clamp(36px, 6vw, 62px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 500; }
+
+    .page { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 80px) clamp(60px, 9vw, 120px); }
+
+    .project-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+      padding: clamp(48px, 7vw, 80px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .project-media img { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
+    .section-h2 { margin: 0 0 20px; font-size: clamp(22px, 2.5vw, 32px); font-weight: 500; letter-spacing: -0.02em; }
+    .section-body { font-size: 15px; color: var(--ink-dim); line-height: 1.8; margin: 0 0 28px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 20px; border-radius: 999px;
+      font: 500 14px/1 'Manrope', sans-serif;
+      cursor: pointer; border: 1px solid transparent;
+      transition: transform .25s, background .25s, color .25s, border-color .25s;
+      text-decoration: none;
+    }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+    .btn-ghost:hover { border-color: rgba(167,163,255,.5); color: #fff; background: rgba(167,163,255,.06); }
+    .btn-primary { background: var(--accent-2); color: #17161f; }
+    .btn-primary:hover { transform: translateY(-1px); background: #fff; }
+
+    .back-row { margin-bottom: 24px; }
+    .back-link {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-mute); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .project-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="grain"></div>
+<div class="frame">
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="links/slwhite.png" width="50" height="50" alt="logo"></a>
+      <div class="nav-links">
+        <a href="mywork.html" class="active">Work</a>
+        <a href="res 2.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="back-row">
+      <a href="mywork.html" class="back-link">← Back to work</a>
+    </div>
+    <div class="eyebrow">Print · February 2024</div>
+    <h1 class="page-title">Last Five Years Publicity</h1>
+  </div>
+
+  <div class="page">
+    <div class="project-section">
+      <div class="project-text">
+        <h2 class="section-h2">Play Bill</h2>
+        <p class="section-body">I was given the opportunity to be a publicist for a JMU run musical titled The Last Five Years. I worked with the director and what he envisioned for the show to create a playbill and a program. This project gave me the opportunity to showcase my visual design skills as well as further my knowledge with Adobe InDesign, Illustrator, and Photoshop. Selecting appropriate fonts and formatting text effectively is crucial for readability and conveying the tone of the production. I also curated Instagram posts following the play's schedule. Coordinating the creation of the playbill involved managing deadlines, communicating with stakeholders such as the directors and producers, and ensuring that my final product met quality standards. Working on this project also gave me more insight in the printing process, editing, and copywriting.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="window.open('L5Yprogram.pdf', '_blank', 'noopener noreferrer')">Program PDF</button>
         </div>
+      </div>
+      <div class="project-media">
+        <img src="links/l5ymock.png" alt="Last Five Years playbill mockup">
+      </div>
+    </div>
 
-        <div class="container col-xxl-8 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div class="col-10 col-sm-8 col-lg-6">
-                <img src="links/l5ymock.png" class="d-block mx-lg-auto img-fluid" alt="poster" width="700" height="500" loading="lazy">
-              </div>
-              <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Play Bill </h1>
-                <p class="lead"> I was given the opportunity to be a publicist for a JMU run musical titled The Last Five Years. I worked with the director and what he envisioned for the show to create a playbill and a program. This project gave me the opportunity to showcase my visual design skills as well as further my knowledge with adobe indesign, illustrator, and photoshop. Selecting appropriate fonts and formatting text effectively is crucial for readability and conveying the tone of the production. I also curated instagram posts following the plays schedule. Coordinating the creation of the playbill involved managing deadlines, communicating with stakeholders such as the directors and producers and ensured that my final product met quality standards. Working on this project also gave me more insight in the printing process, editing, and copywriting.
+  </div>
 
-          </p>
-                <br>
-                <button class="btn btn-lg btn-dark" onclick="window.open('L5Yprogram.pdf', '_blank', 'noopener noreferrer')"> Program PDF </button>
-              </div>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a class="btn btn-sm btn-danger" href="mywork.html">Back to my works</a>
-              </div>
-
-
-            
-          </div>
-
-          
-          
-    </body>
+</div>
+</body>
 </html>

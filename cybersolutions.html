@@ -1,66 +1,266 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="portfolio">
-    <meta name="author" content="sarah lockard">
-    <title>Sarah Lockard · Portfolio</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sarah Lockard — Cyber Solutions project">
+  <meta name="author" content="sarah lockard">
+  <title>Sarah Lockard · Cyber Solutions</title>
 
-    <!-- LOAD BOOTSTRAP CSS - DO NOT DELETE -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- END LOADING BOOTSTRAP CSS -->
+  <style>
+    :root {
+      --bg: #0b0a12;
+      --ink: #ecebf4;
+      --ink-dim: #a8a5bd;
+      --ink-mute: #6e6a85;
+      --accent: #7DBCFF;
+      --accent-2: #f4e9d8;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.18);
+      --card: rgba(255,255,255,0.035);
+    }
+    ::-webkit-scrollbar { width: 14px; height: 14px; }
+    ::-webkit-scrollbar-track { background: #27253D; }
+    ::-webkit-scrollbar-thumb { background: #2E355F; border-radius: 8px; }
+    ::-webkit-scrollbar-thumb:hover { background: #465191; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); min-height: 100vh; }
+    body { font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    
-    <!-- Custom styles -->
-    <link href="custom.css" rel="stylesheet">
-  </head>
-  <body id="page-top">
-   
-       <!-- START THE FEATURETTES -->
-     
-       <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">Madison County Web Design and Development </h1>
-        <p class="lead"> March 2024
-        </p>
-        
-          <a class="btn btn-sm btn-outline-danger" href="mywork.html">Back to my works</a>
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(60% 45% at 15% 12%, rgba(120,102,255,0.28), transparent 60%),
+        radial-gradient(50% 40% at 85% 8%, rgba(72,58,170,0.22), transparent 65%),
+        radial-gradient(70% 50% at 50% 110%, rgba(167,163,255,0.12), transparent 70%);
+    }
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.4;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .frame { position: relative; z-index: 2; }
 
-         
-        
-      
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(14px) saturate(1.1);
+      -webkit-backdrop-filter: blur(14px) saturate(1.1);
+      background: linear-gradient(to bottom, rgba(11,10,18,0.75), rgba(11,10,18,0.35));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1380px; margin: 0 auto;
+      padding: 18px clamp(24px, 5vw, 80px);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; display: inline-flex; align-items: center; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 18px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: rgba(255,255,255,0.85); }
+    .nav-links a.active { color: var(--accent); }
+
+    .page-header {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(4px, 10vw, 50px) clamp(24px, 5vw, 80px) clamp(32px, 5vw, 0px);
+      position: relative;
+    }
+    .eyebrow {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .page-title { margin: 0; font-size: clamp(36px, 6vw, 52px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 500; }
+    .page-subtitle { margin: 16px 0 0; font-size: 17px; color: var(--ink-dim); max-width: 600px; line-height: 1.7; }
+
+    .page { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 80px) clamp(60px, 9vw, 120px); }
+
+    /* Overview section: image left, highlights right */
+    .overview-section {
+      display: grid;
+      grid-template-columns: .5fr 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+      padding: clamp(48px, 7vw, 0px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .project-media img { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
+
+    .highlights { display: flex; flex-direction: column; gap: 20px; }
+    .highlight-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px; border-radius: 12px;
+      background: var(--card); border: 1px solid var(--line);
+    }
+    .highlight-icon {
+      font-size: 20px; line-height: 1; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .highlight-text h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--ink); }
+    .highlight-text p { margin: 0; font-size: 13px; color: var(--ink-dim); line-height: 1.6; }
+
+    /* Tags row */
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px;
+      border: 1px solid var(--line-strong); color: var(--ink-dim);
+    }
+
+    /* Live site button */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 20px; border-radius: 999px;
+      font: 500 14px/1 'Manrope', sans-serif;
+      cursor: pointer; border: 1px solid transparent;
+      transition: transform .25s, background .25s, color .25s, border-color .25s;
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--accent-2); color: #17161f; }
+    .btn-primary:hover { transform: translateY(-1px); background: #fff; }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; right: 3rem;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s ease forwards;
+    }
+    .scroll-hint span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-mute); }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--ink-mute), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* PDF section */
+    .pdf-section {
+      padding: clamp(20px, 7vw, 30px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-h2 { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 32px); font-weight: 500; letter-spacing: -0.02em; }
+    .section-label { margin: 0 0 24px; font-size: 14px; color: var(--ink-mute); }
+    .pdf-embed {
+      width: 100%; height: 680px;
+      border-radius: 12px; border: 1px solid var(--line);
+      display: block; background: #1a1826;
+    }
+
+    .back-row { margin-bottom: 24px; }
+    .back-link {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-mute); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .overview-section { grid-template-columns: 1fr; }
+      .pdf-embed { height: 480px; }
+      .scroll-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="grain"></div>
+<div class="frame">
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="links/slwhite.png" width="50" height="50" alt="logo"></a>
+      <div class="nav-links">
+        <a href="mywork.html" class="active">Work</a>
+        <a href="res 2.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="back-row">
+      <a href="mywork.html" class="back-link">← Back to work</a>
+    </div>
+    <div class="eyebrow">Web Dev · March 2024</div>
+    <h1 class="page-title">Cyber Solutions</h1>
+    <p class="page-subtitle">A management platform built for Madison County officials — enabling collaboration, financial analysis, and government transparency.</p>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- Overview -->
+    <div class="overview-section">
+      <div class="project-media">
+        <img src="links/madcomp.png" alt="Cyber Solutions screenshot">
+        <div class="btn-row">
+          <a href="https://cewhite3.github.io/BobThompson/index.html" target="_blank" rel="noopener" class="btn btn-primary">Live Site →</a>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">📁</div>
+          <div class="highlight-text">
+            <h3>File Collaboration</h3>
+            <p>Officials can upload, view, and share files across departments to encourage transparency and streamline workflows.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📊</div>
+          <div class="highlight-text">
+            <h3>Financial Analysis</h3>
+            <p>Import and export Excel or CSV files to perform statistical functions and government-related projections.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📱</div>
+          <div class="highlight-text">
+            <h3>PC &amp; Mobile</h3>
+            <p>Fully responsive platform accessible across devices, designed around the needs of local government users.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🏛️</div>
+          <div class="highlight-text">
+            <h3>Senior Capstone</h3>
+            <p>Delivered as a team project for Madison County — a real client with real government stakeholders.</p>
+          </div>
         </div>
 
-        <div class="container col-xxl-8 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div class="col-10 col-sm-8 col-lg-6">
-                <div class="image-container">
-                    <img src="links/madcomp.png" class="card-img-top image" alt=".computer screen">
-                    <a href="https://cewhite3.github.io/BobThompson/index.html" target="_blank" class="btn btn-lg btn-primary hover-button">Live Site</a>
-                  </div>
-               
-              </div>
-              <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Project Description </h1>
-                <p class="lead"> For our senior capstone project our team Cyber Solutions created a Management System for Madison County officials to collaborate, view and upload files, create financial analyses and projections, and perform other tasks essential to the work at Madison County. Ultimately, this system allows Madison County officials to make strategic plans to increase efficiency with government-related projections and increase local government transparency. This project aims to develop a user-friendly platform accessible via PC and mobile devices for local government officials. The platform will facilitate file uploads, encouraging collaboration and transparency within government departments. Additionally, the project includes creating a system for importing and exporting Excel or CSV files to support quantitative data analysis. Users will be able to perform statistical functions and utilize a database for storing various data types.
+        <div class="tags-row">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Data Viz</span>
+          <span class="tag">Team Project</span>
+        </div>
+      </div>
+    </div>
 
+    <!-- PDF Viewer -->
+    <div class="pdf-section" id="docs">
+      <h2 class="section-h2">User Narratives &amp; Personas</h2>
+      <p class="section-label">Sprint 3 Documentation</p>
+      <iframe
+        class="pdf-embed"
+        src="Sprint 3 Documentation.pdf"
+        title="Sprint 3 Documentation — User Narratives & Personas"
+      ></iframe>
+    </div>
 
-          </p>
-                <br>
-                <button class="btn btn-lg btn-dark" onclick="window.open('Sprint 3 Documentation.pdf', '_blank', 'noopener noreferrer')"> User Narrative & Personas</button>
-              </div>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a class="btn btn-sm btn-danger" href="mywork.html">Back to my works</a>
-              </div>
+  </div>
 
-
-            
-          </div>
-          
-
-          
-          
-    </body>
+</div>
+</body>
 </html>

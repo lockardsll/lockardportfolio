@@ -12,11 +12,11 @@ const TIMELINE = [
     summary: "Designed and shipped scalable UX/UI for complex web applications — document viewers, multi-panel layouts, dashboards.",
     bullets: [
       "Translated high-fidelity Figma designs into production frontend using JavaScript, Lit and Shoelace.",
-      "Built a reusable component system that improved development velocity and visual consistency.",
+      "Built a reusable component systems that improved development velocity and visual consistency.",
       "Shipped advanced UI interactions — collapsible panels, dynamic toolbars, selectable grids.",
       "Applied WCAG accessibility practices across every shipped component.",
       "Customized component theming via CSS variables and design tokens.",
-      "Designed workflows and prototypes for a local-government collaboration & file-handling platform.",
+      " Implemented responsive design patterns for seamless user experience across devices.",
     ],
     tags: ["Lit", "Shoelace", "Figma", "Design Systems", "WCAG", "TypeScript"],
     accent: 1.0,
@@ -31,7 +31,7 @@ const TIMELINE = [
     summary: "Partnered with the university's web team to build responsive, accessible interfaces and iterate within agile sprints.",
     bullets: [
       "Built responsive frontend interfaces using HTML, CSS, and JavaScript.",
-      "Created wireframes and interactive prototypes in Figma.",
+      "Designed workflows and prototypes for a local-government collaboration & file-handling platform.",
       "Worked in agile sprint cycles to deliver iterative improvements.",
     ],
     tags: ["HTML", "CSS", "JS", "WordPress", "Figma"],

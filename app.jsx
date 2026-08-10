@@ -8,15 +8,15 @@ const TIMELINE = [
     kind: "Experience",
     title: "UX Designer / Frontend Developer",
     org: "IPDemons",
-    location: "Freelance",
-    summary: "Designed and shipped scalable UX/UI for complex web applications — document viewers, multi-panel layouts, dashboards.",
+    location: "Remote",
+    summary: "Designed and developed scalable UX solutions for complex web applications, including document viewers, multi-panel layouts, and dashboards.",
     bullets: [
-      "Translated high-fidelity Figma designs into production frontend using JavaScript, Lit and Shoelace.",
-      "Built a reusable component systems that improved development velocity and visual consistency.",
-      "Shipped advanced UI interactions — collapsible panels, dynamic toolbars, selectable grids.",
-      "Applied WCAG accessibility practices across every shipped component.",
-      "Customized component theming via CSS variables and design tokens.",
-      " Implemented responsive design patterns for seamless user experience across devices.",
+      "Translated high-fidelity Figma designs into production-ready frontend code using JavaScript, Lit, and Shoelace.",
+      "Built reusable, component-based UI systems to improve development efficiency and consistency.",
+      "Implemented responsive design patterns for seamless user experience across devices.",
+      "Developed advanced UI interactions including collapsible panels, dynamic toolbars, and selectable grids.",
+      "Applied accessibility best practices (WCAG) across UI components.",
+      "Collaborated with cross-functional teams to translate user and business requirements into scalable interface solutions.",
     ],
     tags: ["Lit", "Shoelace", "Figma", "Design Systems", "WCAG", "TypeScript"],
     accent: 1.0,
@@ -30,11 +30,13 @@ const TIMELINE = [
     location: "Harrisonburg, VA",
     summary: "Partnered with the university's web team to build responsive, accessible interfaces and iterate within agile sprints.",
     bullets: [
-      "Built responsive frontend interfaces using HTML, CSS, and JavaScript.",
-      "Designed workflows and prototypes for a local-government collaboration & file-handling platform.",
-      "Worked in agile sprint cycles to deliver iterative improvements.",
+      "Developed a web-based management system for local government collaboration and file handling.",
+      "Designed UX workflows and prototypes to improve usability and reduce inefficiencies.",
+      "Created wireframes and interactive prototypes using Figma.",
+      "Built and implemented responsive frontend interfaces using HTML, CSS, and JavaScript.",
+      "Worked in agile sprint cycles to deliver iterative improvements."
     ],
-    tags: ["HTML", "CSS", "JS", "WordPress", "Figma"],
+    tags: ["HTML", "CSS", "JS", "Figma"],
     accent: 0.75,
   },
   {
@@ -225,7 +227,7 @@ function TimelineSection({ items, density }) {
     <section id="timeline" style={{...timelineStyles.section, "--row-gap": pad + "px"}}>
       <SectionHeader eyebrow="01 / Timeline" title="Design & Development Journey" />
       <div style={{ padding: `0 ${PAGE_PAD}`, marginBottom: pad }}>
-        <a href="26Resume.pdf" target="_blank" rel="noopener" className="btn btn-ghost">
+        <a href="ResumeSL.pdf" target="_blank" rel="noopener" className="btn btn-ghost">
           <Icon.Dl /> Download PDF
         </a>
       </div>
@@ -408,7 +410,7 @@ function SummarySection() {
       <p style={summaryStyles.text}>
         I'm a <em style={summaryStyles.em}>designer who builds</em> — specializing in
         responsive, user-centered web applications. My work lives at the seam between
-        high-fidelity UX/UI and scalable, accessible frontend code, written in
+        high-fidelity UI and scalable, accessible frontend code, written in
         JavaScript, Lit, and component-based architectures.
       </p>
       <div style={summaryStyles.sigRow}>
